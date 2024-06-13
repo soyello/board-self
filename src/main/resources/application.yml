@@ -1,0 +1,35 @@
+debug: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  level:
+    org.fastcampus.projectboard: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/board
+    username: soyellow
+    password: 1emdgkqrur
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create #??? ?? entity? ?? ???? ddl?? ??? ??.
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100 #n+1? ?? ???...
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: always
+
+
